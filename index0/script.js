@@ -1,4 +1,4 @@
- const myAge = 45;
+/*  const myAge = 45;
  const humanDogRatio = 7;
  const myDogAge = myAge * humanDogRatio;
  console.log(myDogAge);
@@ -106,3 +106,102 @@ let errorParagraph = document.getElementById('error');
 function print () {
   errorParagraph.textContent = errorMsg;
 }
+
+let num1 = 8;
+let num2 = 2;
+
+document.getElementById('num1-el').textContent = num1;
+document.getElementById('num2-el').textContent = num2;
+
+function add() {
+  let addNum = num1 + num2;
+  document.getElementById('sum-el').textContent = addNum;
+}
+function subtract() {
+  let subtractNum = num1 - num2;
+  document.getElementById('sum-el').textContent = subtractNum;
+}
+function divide() {
+  let divideNum = num1 / num2;
+  document.getElementById('sum-el').textContent = divideNum;
+}
+function multiply() {
+  let multiplyNum = num1 * num2;
+  document.getElementById('sum-el').textContent = multiplyNum;
+} 
+
+ document.getElementById('num1-el').textContent = num1;
+document.getElementById('num2-el').textContent = num2;
+
+let num3 = 0;
+
+function add() {
+  let addNum = num3 ++;
+  document.getElementById('sum-el').textContent = addNum;
+ }
+function subtract() {
+  let subtractNum = num3 --;
+  document.getElementById('sum-el').textContent = subtractNum;
+}
+function divide() {
+  num3 = 0;
+  let divideNum = num3;
+  document.getElementById('sum-el').textContent = divideNum;
+}
+ */
+
+
+
+
+/* let firstCard = 10;
+let secondCard = 9;
+
+let sum = firstCard + secondCard;
+
+if (sum < 21) {
+  console.log('Do you want another card?')
+} else if (sum===21) {
+  console.log('Blackjack!!')
+} else {
+  console.log('You are out of the game...')
+}
+
+let age = 22;
+
+if (age <= 20) {
+  console.log('not ok')
+} else {
+  console.log ('ok')
+}; */
+
+/* let age = 100;
+
+if (age <100 ) {
+  console.log('not eligeble')
+} else if (age === 100) {
+  console.log('Blackjack!!')
+} else {
+  console.log('You are out of the game...')
+} */
+
+
+let firstCard = 10;
+let secondCard = 10;
+let sum = firstCard + secondCard;
+let hasBlackJack = false;
+let isAlive = true;
+let message = "";
+
+if (sum <= 20) {
+  message = 'Do you want another card?';
+  isAlive = true;
+} else if (sum===21) {
+  message = 'Blackjack!!';
+  hasBlackJack = true;
+  isAlive = true;
+} else {
+  message = 'You are out of the game...!!';
+  isAlive = false;
+}
+console.log(message);
+console.log(isAlive);
