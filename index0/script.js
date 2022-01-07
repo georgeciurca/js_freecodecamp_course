@@ -150,9 +150,6 @@ function divide() {
 }
  */
 
-
-
-
 /* let firstCard = 10;
 let secondCard = 9;
 
@@ -184,24 +181,81 @@ if (age <100 ) {
   console.log('You are out of the game...')
 } */
 
+/* let sentence = [" a", "b", "c", "d", "e"];
+let messageEel = document.getElementById("message-eel");
 
-let firstCard = 10;
-let secondCard = 10;
-let sum = firstCard + secondCard;
+for (let i = 0; i < sentence.length; i++) {
+  messageEel.textContent += sentence[i] + " ";
+
+} */
+
+/* function rollDice () {
+  let randomNumber = Math.floor(Math.random()*6) + 1;
+  return randomNumber
+};
+console.log(rollDice()); */
+
+let cards = [];
+let sum = 0;
 let hasBlackJack = false;
-let isAlive = true;
+let isAlive = false;
 let message = "";
 
-if (sum <= 20) {
-  message = 'Do you want another card?';
+let messageEl = document.getElementById("message-el");
+let sumEl = document.querySelector("#sum-el");
+let cardsEl = document.getElementById("cards-el");
+
+function getRandomCard() {
+  let randomNumber = Math.floor(Math.random() * 13) + 1;
+   if (randomNumber > 10) {
+    return 10
+  } else if (randomNumber === 1) {
+    return 11
+  } else {
+    return randomNumber
+  }
+  }
+
+
+function startGame() {
+  let firstCard = getRandomCard();
+  let secondCard = getRandomCard();
+  let cards = [firstCard, secondCard];
+  let sum = firstCard + secondCard;
+  renderGame();
   isAlive = true;
-} else if (sum===21) {
-  message = 'Blackjack!!';
-  hasBlackJack = true;
-  isAlive = true;
-} else {
-  message = 'You are out of the game...!!';
-  isAlive = false;
+
 }
-console.log(message);
-console.log(isAlive);
+
+function renderGame() {
+  cardsEl.textContent = "Cards: ";
+  for (let i = 0; i < cards.length; i++) {
+    cardsEl.textContent += cards[i] + " ";
+  }
+  sumEl.textContent = "Sum: " + sum;
+
+  if (sum <= 20) {
+    message = "Do you want another card?";
+    isAlive = true;
+  } else if (sum === 21) {
+    message = "Blackjack!!";
+    hasBlackJack = true;
+    isAlive = true;
+  } else {
+    message = "You are out of the game...!!";
+    isAlive = false;
+  }
+  messageEl.textContent = message;
+}
+
+function newCard() {
+  console.log("drawing a new card from the deck");
+  let card = getRandomCard();
+  sum += card;
+  cards.push(card);
+  renderGame();
+}
+
+for (let i = 0; i < cards.length; i++) {
+  console.log(cards[i]);
+}
